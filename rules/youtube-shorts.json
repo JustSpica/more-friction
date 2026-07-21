@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/blocked/blocked.html?reason=shorts"
+      }
+    },
+    "condition": {
+      "urlFilter": "||youtube.com/shorts/",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
