@@ -1,0 +1,21 @@
+/* Feature 1: hide YouTube Shorts surfaces. These selectors cover the stable,
+ * non-localized cases and are injected at document_start to avoid a flash. The
+ * companion content script handles dynamic / link-based cases (see
+ * youtube-shorts-hider.ts). Attribute `data-mf-hidden` is set by that script. */
+
+/* Home page Shorts shelves. */
+ytd-rich-shelf-renderer[is-shorts],
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+/* Search / subscriptions reel shelves. */
+ytd-reel-shelf-renderer,
+/* Individual Shorts entries in feeds, grids and search results. */
+ytd-video-renderer:has(a[href^="/shorts"]),
+ytd-grid-video-renderer:has(a[href^="/shorts"]),
+ytd-rich-item-renderer:has(a[href^="/shorts"]),
+ytd-compact-video-renderer:has(a[href^="/shorts"]),
+/* Left sidebar / mini-guide Shorts entry. */
+ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+[data-mf-hidden="shorts"] {
+  display: none !important;
+}
