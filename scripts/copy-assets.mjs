@@ -43,9 +43,11 @@ async function main() {
   await mkdir(distDir, { recursive: true });
   await copyFile(join(projectRoot, "manifest.json"), join(distDir, "manifest.json"));
 
-  const rulesDir = join(projectRoot, "rules");
-  if (existsSync(rulesDir)) {
-    await cp(rulesDir, join(distDir, "rules"), { recursive: true });
+  for (const dirName of ["rules", "config"]) {
+    const sourceDir = join(projectRoot, dirName);
+    if (existsSync(sourceDir)) {
+      await cp(sourceDir, join(distDir, dirName), { recursive: true });
+    }
   }
 
   await copySrcAssets(srcDir);
