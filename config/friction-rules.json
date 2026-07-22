@@ -1,11 +1,10 @@
 [
   {
-    "domain": "reddit.com",
+    "domain": "chess.com",
     "schedule": {
       "enabled": true,
       "windows": [
-        { "days": [1, 2, 3, 4, 5], "start": "22:55", "end": "22:56" },
-        { "days": [0, 6], "start": "10:00", "end": "12:00" }
+        { "days": [0, 6], "start": "12:00", "end": "20:00" }
       ]
     }
   },
@@ -14,7 +13,7 @@
     "schedule": {
       "enabled": true,
       "windows": [
-        { "days": [0, 1, 2, 3, 4, 5, 6], "start": "19:00", "end": "20:00" }
+        { "days": [0, 1, 2, 3, 4, 5, 6], "start": "18:00", "end": "19:00" }
       ]
     }
   }
