@@ -3,8 +3,12 @@
   "name": "more-friction",
   "version": "0.1.0",
   "description": "Adds friction to attention-draining sites: a personal technological fence.",
-  "permissions": ["declarativeNetRequest"],
-  "host_permissions": ["*://*.youtube.com/*"],
+  "permissions": ["declarativeNetRequest", "webNavigation", "tabs", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
