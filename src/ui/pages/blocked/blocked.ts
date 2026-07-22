@@ -8,7 +8,7 @@ const COPY_BY_REASON: Record<string, BlockedCopy> = {
   shorts: {
     title: "Shorts bloqueado!",
     message: "O YouTube Shorts está desabilitado pela nossa extensão.",
-    detail: "Volte para uma página de vídeo normal ou feche a aba.",
+    detail: "Volte para a página anterior ou feche a aba.",
   },
 };
 
@@ -26,7 +26,7 @@ function scheduleCopy(): BlockedCopy {
   const opensAt = rawOpensAt !== null ? Number(rawOpensAt) : Number.NaN;
   if (!Number.isFinite(opensAt)) {
     return {
-      title: "Fora de horário",
+      title: "Dominío acessado fora de horário.",
       message: "Este site está fora do horário de uso permitido.",
       detail: "",
     };
@@ -37,9 +37,9 @@ function scheduleCopy(): BlockedCopy {
     minute: "2-digit",
   }).format(new Date(opensAt));
   return {
-    title: "Fora de horário",
-    message: "Este site está fora do horário de uso permitido.",
-    detail: `Liberado novamente em ${opening}.`,
+    title: "Dominío acessado fora de horário.",
+    message: "Você está acessando esse site fora do horário de uso permitido.",
+    detail: `Ele será liberado novamente em ${opening}.`,
   };
 }
 

@@ -1,7 +1,7 @@
 :root {
-  --background: #e7e5e4;
+  --background: #fafaf9;
   --foreground: #1c1917;
-  --accent: #3b82f6;
+  --accent: #4ade80;
 }
 
 * {
@@ -21,30 +21,33 @@ main {
   min-height: 100vh;
   padding: 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.content {
-  max-width: 1280px;
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.text-head {
+  max-width: 700px;
+  text-align: center;
+}
+
+.content {
+  margin-top: 32px;
+}
+
 .content img {
-  width: 300px;
+  width: 800px;
 }
 
 h1 {
-  margin-top: 24px;
-  font-size: 2rem;
+  margin-top: 32px;
+  font-size: 2.5rem;
+  color: var(--foreground);
 }
 
 p {
-  max-width: 500px;
   margin-top: 12px;
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
+  color: #16a34a;
 }
