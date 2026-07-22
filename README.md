@@ -126,4 +126,3 @@ After building, reload the extension in `chrome://extensions`. `dist/` is git-ig
 - **Configuration is a file, not a UI.** Rules are authored directly in `config/friction-rules.json` and consumed as-is. Editing means editing the file and reloading.
 - **No bundler.** Because content scripts run as classic scripts, they stay self-contained (no `import`/`export`). The service worker is declared as an ES module. `tsc` preserves the `src/` layout under `dist/`.
 - **Blocked page path.** The blocked page is referenced from three places that must stay in sync when moved: the DNR rule's `extensionPath`, `web_accessible_resources` in the manifest, and `infrastructure/blocked-url.ts`.
-```
