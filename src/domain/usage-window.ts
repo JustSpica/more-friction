@@ -1,7 +1,6 @@
-// Feature 4: usage time windows. Pure evaluation of whether "now" falls inside
-// an allowed window, and when the next window opens/closes. No chrome/DOM.
-// Windows do not cross midnight: `start` must be earlier than `end` on the same
-// day. Overnight ranges are modelled as two windows on the relevant days.
+// Usage time windows: whether "now" is inside an allowed window and when the
+// next one opens/closes. Windows never cross midnight (start < end);
+// model overnight ranges as two windows.
 
 /** Day of week as returned by `Date.prototype.getDay()` (0 = Sunday). */
 export type Weekday = 0 | 1 | 2 | 3 | 4 | 5 | 6;

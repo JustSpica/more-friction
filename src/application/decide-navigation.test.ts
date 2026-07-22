@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { decideNavigation } from "./navigation-router.js";
+import { decideNavigation } from "./decide-navigation.js";
 
 import type { SiteRule } from "../domain/site-rules.js";
 

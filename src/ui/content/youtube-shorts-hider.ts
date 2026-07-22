@@ -1,15 +1,8 @@
-// Feature 1: removes YouTube Shorts. Runs as a classic content script at
-// document_start, so it must stay self-contained (no imports).
-//
-// YouTube is a single-page app: most navigation happens via the History API,
-// never as a network request. So the route block lives here (reacting to SPA
-// navigation) rather than relying only on the declarativeNetRequest rule, which
-// only fires on full page loads.
-//
-// Three responsibilities:
-//   1. Redirect any /shorts route to the blocked page.
-//   2. Hide Shorts shelves, feed items and sidebar entries (link-based).
-//   3. Hide the "Shorts" search/home filter chip (text-based; it has no link).
+// Removes YouTube Shorts. Classic content script at document_start, so it must
+// stay self-contained (no imports). YouTube is an SPA, so the route block reacts
+// to client-side navigation here, not only via the DNR rule (which fires on full
+// loads). It redirects /shorts routes, hides Shorts shelves/feed/sidebar
+// (link-based) and hides the "Shorts" filter chip (text-based, it has no link).
 
 // --- 1. Route block -------------------------------------------------------
 
@@ -21,7 +14,7 @@ let redirecting = false;
 function enforceRoute(): void {
   if (redirecting || !isShortsRoute()) return;
   redirecting = true;
-  location.replace(chrome.runtime.getURL("blocked/blocked.html?reason=shorts"));
+  location.replace(chrome.runtime.getURL("ui/pages/blocked/blocked.html?reason=shorts"));
 }
 
 // --- 2. Link-based hiding (shelves, feed items, sidebar) ------------------
@@ -61,10 +54,8 @@ function hideShortsLinks(): void {
 }
 
 // --- 3. Text-based hiding ------------------------------------------------
-// Some Shorts surfaces have no /shorts link: search filter chips are pure
-// filters, and the sidebar entry uses a yt-simple-endpoint (click handler, no
-// href) identified only by its "Shorts" title. Match those by text. "Shorts"
-// stays untranslated across locales, so an exact match is safe and precise.
+// Filter chips and the sidebar entry have no /shorts link, so match them by
+// their "Shorts" title. It stays untranslated, so an exact match is safe.
 
 function hideShortsChips(): void {
   const chips = document.querySelectorAll("yt-chip-cloud-chip-renderer");

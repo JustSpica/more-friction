@@ -5,7 +5,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "extensionPath": "/blocked/blocked.html?reason=shorts"
+        "extensionPath": "/ui/pages/blocked/blocked.html?reason=shorts"
       }
     },
     "condition": {

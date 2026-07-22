@@ -1,6 +1,5 @@
-// Contract for the blocked page. Building/parsing the query string is pure and
-// shared between the background (which redirects here) and blocked.ts (which
-// renders). The chrome-dependent URL helper is the only part needing runtime.
+// Block reasons and the pure build/parse of the blocked page's query string,
+// shared by the redirect builder and the page renderer. No chrome/DOM.
 
 export type BlockReason = "shorts" | "schedule";
 
@@ -38,11 +37,4 @@ export function parseBlockedParams(search: string): BlockedParams {
   }
 
   return result;
-}
-
-/** Absolute chrome-extension:// URL for the blocked page with the given params. */
-export function blockedPageUrl(params: BlockedParams): string {
-  const base = chrome.runtime.getURL("blocked/blocked.html");
-  
-  return `${base}?${buildBlockedQuery(params)}`;
 }

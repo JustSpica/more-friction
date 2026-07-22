@@ -1,6 +1,5 @@
-// Feature 4, second half: re-block tabs whose allowed window closes while they
-// are still open. A one-minute alarm sweeps open tabs and reuses the navigation
-// decision, so an expiring window redirects the page without a fresh navigation.
+// Re-blocks tabs whose allowed window closes while open: a one-minute alarm
+// sweeps open tabs and reuses the navigation decision.
 
 import { reevaluateTab } from "./navigation-router.js";
 

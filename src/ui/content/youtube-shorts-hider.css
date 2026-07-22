@@ -1,7 +1,6 @@
-/* Feature 1: hide YouTube Shorts surfaces. These selectors cover the stable,
- * non-localized cases and are injected at document_start to avoid a flash. The
- * companion content script handles dynamic / link-based cases (see
- * youtube-shorts-hider.ts). Attribute `data-mf-hidden` is set by that script. */
+/* Hides the stable, non-localized Shorts surfaces, injected at document_start to
+ * avoid a flash. The content script handles the dynamic cases and sets
+ * `data-mf-hidden`. */
 
 /* Home page Shorts shelves. */
 ytd-rich-shelf-renderer[is-shorts],

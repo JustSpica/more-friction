@@ -1,5 +1,5 @@
-// Feature 4 decision: is the domain allowed right now, and if not, when does it
-// reopen? Pure (composes usage-window); the router performs the redirect.
+// Decides whether a domain is allowed now and, if not, when it reopens. Pure;
+// composes usage-window. The router performs the redirect.
 
 import type { ScheduleConfig } from "../domain/site-rules.js";
 import { isWithinAllowedWindow, nextOpening } from "../domain/usage-window.js";

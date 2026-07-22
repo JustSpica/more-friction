@@ -21,7 +21,6 @@ const FALLBACK: BlockedCopy = {
 const params = new URLSearchParams(location.search);
 const reason = params.get("reason") ?? "";
 
-// The schedule block is dynamic: its detail names when the site reopens.
 function scheduleCopy(): BlockedCopy {
   const rawOpensAt = params.get("opensAt");
   const opensAt = rawOpensAt !== null ? Number(rawOpensAt) : Number.NaN;

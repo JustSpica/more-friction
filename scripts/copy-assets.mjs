@@ -1,7 +1,5 @@
-// Copies non-TypeScript assets into dist/ after `tsc` runs.
-// tsc only emits .js from src/**/*.ts; static files (html, css, json manifest,
-// DNR rule sets) must be placed next to the compiled code with the same layout
-// the manifest references. No bundler, so this keeps paths predictable.
+// Copies non-TypeScript assets (html, css, images, manifest, config, DNR rules)
+// into dist/ after `tsc`, preserving the layout the manifest references.
 import { cp, mkdir, readdir, copyFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join, relative } from "node:path";

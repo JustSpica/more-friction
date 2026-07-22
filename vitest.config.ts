@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     include: ["src/**/*.test.ts"],
     environment: "node",
-    environmentMatchGlobs: [["src/content/**", "jsdom"]],
+    environmentMatchGlobs: [["src/ui/content/**", "jsdom"]],
     clearMocks: true,
   },
 });

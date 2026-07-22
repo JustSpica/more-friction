@@ -1,7 +1,6 @@
-// URL/domain helpers shared by the navigation rules. Pure logic.
-// Rule matching is suffix-based against a configured registrable domain
-// (e.g. "youtube.com"), so subdomains like www./m./music.youtube.com all match
-// without needing the full Public Suffix List.
+// URL/domain helpers. Matching is suffix-based against a registrable domain
+// (e.g. "youtube.com"), so www./m./music. subdomains match without the Public
+// Suffix List.
 
 export function hostnameOf(url: string): string | null {
   try {

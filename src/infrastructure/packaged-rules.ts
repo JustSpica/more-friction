@@ -1,10 +1,6 @@
-// Loads the rules bundled with the extension (config/friction-rules.json). The
-// file is authored directly in the internal SiteRule shape, so it is consumed
-// as-is, no parser or validation layer. Editing rules means editing the file
-// and reloading the extension.
-//
-// The result is memoized for the service worker's lifetime; a fresh worker
-// start re-reads the file, which is when config changes take effect.
+// Loads config/friction-rules.json (authored directly in the SiteRule shape, so
+// consumed as-is). Memoized for the worker's lifetime; edits take effect on the
+// next worker start.
 
 import type { SiteRule } from "../domain/site-rules.js";
 
